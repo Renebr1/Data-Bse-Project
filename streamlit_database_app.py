@@ -176,7 +176,7 @@ SQL:"""
 
         try:
             response = self.openai_client.chat.completions.create(
-                model="gpt-4",
+                model="gpt-4.1",
                 messages=[
                     {"role": "system", "content": "You are a SQL expert. Return only valid PostgreSQL queries."},
                     {"role": "user", "content": prompt}
