@@ -151,6 +151,21 @@ QUERY GUIDELINES:
 - Use ILIKE for text searches
 - Group and aggregate data appropriately
 - Order results logically
+
+EVENT-SPECIFIC INSTRUCTIONS:
+- ALWAYS use the field 'internal_name' when querying for event-related information
+- When asked about specific events (e.g., "pl25", "pl 25"), match against internal_name field
+- For event queries, internal_name corresponds to the event identifier
+
+TICKET COUNTING INSTRUCTIONS:
+- For paid tickets: Use COUNT(DISTINCT id) FROM paid_ticket_tables GROUP BY internal_name
+- For free tickets: Use free_tickets table
+- For delegates/sponsorship tickets: Use delegates table
+- Each ticket type has its own dedicated table
+
+CONTENT DOWNLOAD INSTRUCTIONS:
+- For questions about content downloads: Query the metabase_articles table
+- Number of downloads information is stored in metabase_articles table
         """
         return context
     
@@ -169,6 +184,14 @@ RULES:
 3. Use proper JOINs between tables
 4. Add LIMIT for top/best queries
 5. Use ILIKE for text searches
+
+SPECIAL INSTRUCTIONS:
+- For EVENT queries: Always filter by 'internal_name' field (e.g., internal_name = 'pl25')
+- For TICKET COUNTS: Use COUNT(DISTINCT id) grouped by internal_name
+  * Paid tickets: query paid_ticket_tables
+  * Free tickets: query free_tickets table  
+  * Delegates/sponsorship: query delegates table
+- For CONTENT DOWNLOADS: Query metabase_articles table
 
 QUESTION: {question}
 
