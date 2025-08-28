@@ -164,8 +164,8 @@ TICKET COUNTING INSTRUCTIONS:
 - Each ticket type has its own dedicated table
 
 CONTENT DOWNLOAD INSTRUCTIONS:
-- For questions about content downloads: Query the metabase_articles table
-- Number of downloads information is stored in metabase_articles table
+- For questions about content downloads: Query the metabase resource articles table
+- Number of downloads information is stored in metabase_articles table using a count of the resource id field
         """
         return context
     
