@@ -165,8 +165,10 @@ TICKET COUNTING INSTRUCTIONS:
 - Each ticket type has its own dedicated table
 
 CONTENT DOWNLOAD INSTRUCTIONS:
-- For questions about content downloads: Query the metabase resource articles table
-- Number of downloads information is stored in metabase_resource_downloads table using a count of the resource id field, group by title or resource_type depending on what you are being asked
+- For questions about content downloads: Query the metabase_resource_downloads table
+- Downloads data structure: count(resource_id) as downloads, grouped by resource_id and resource_type
+- For date filtering: use datetime column (format: datetime >= '2024-01-01')
+- For averages by type: use subquery pattern to first count downloads per resource, then average by resource_type
         """
         return context
     
