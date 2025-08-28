@@ -151,6 +151,7 @@ QUERY GUIDELINES:
 - Use ILIKE for text searches
 - Group and aggregate data appropriately
 - Order results logically
+- For ilike Always use upper to avoid problems on the caps
 
 EVENT-SPECIFIC INSTRUCTIONS:
 - ALWAYS use the field 'internal_name' when querying for event-related information
@@ -165,7 +166,7 @@ TICKET COUNTING INSTRUCTIONS:
 
 CONTENT DOWNLOAD INSTRUCTIONS:
 - For questions about content downloads: Query the metabase resource articles table
-- Number of downloads information is stored in metabase_articles table using a count of the resource id field
+- Number of downloads information is stored in metabase_resource_downloads table using a count of the resource id field, group by title or resource_type depending on what you are being asked
         """
         return context
     
@@ -191,7 +192,7 @@ SPECIAL INSTRUCTIONS:
   * Paid tickets: query paid_ticket_tables
   * Free tickets: query free_tickets table  
   * Delegates/sponsorship: query delegates table
-- For CONTENT DOWNLOADS: Query metabase_articles table
+- For CONTENT DOWNLOADS: Query metabase_ resource_downloads table
 
 QUESTION: {question}
 
